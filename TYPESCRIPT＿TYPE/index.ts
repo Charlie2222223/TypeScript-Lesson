@@ -135,3 +135,13 @@ anything.fjdka = 'jkldjf:a';
 let banana = 'banana';
 banana = anything;      //string型にany型が入れられる！！
 
+
+
+/**
+ * Union型
+ * 複数の型を受け入れられるようにする
+ */
+let unionType: number | string = 10;
+unionType = 'hello';
+
+let unionTypes: (string | number)[] = [10, 'hello'];    //配列でUnion型を使う場合 
