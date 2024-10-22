@@ -119,3 +119,19 @@ enum CoffeeSize2 {      //この場合だとSHORT=0 TALL="Tall" GRANDE=1 VENTI=2
 }
 
 
+
+/**
+ * any型
+ * なんでも入れられる
+ * anyだった場合はTypeScriptは何もできない = JavaScriptになってしまう
+ * anyはなるべく使わないようにする
+ */
+let anything: any = true;
+anything = 'hello';
+anything = ['hello', 20, true];
+anything= {};
+anything.fjdka = 'jkldjf:a';
+
+let banana = 'banana';
+banana = anything;      //string型にany型が入れられる！！
+
