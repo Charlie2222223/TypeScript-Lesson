@@ -56,4 +56,13 @@ const person2 = {
 const fruits: string[] = ['Apple', 'Banana', 'Grape']
 // fruits.push(21); これはエラーが出るようになる
 
+/**
+ * タプル型
+ * この形にしたい！！って時に使う
+ * 必ず型注釈をする必要がある
+ */
+const book: [string, number, boolean] = ['bussiness', 500, false];
+book.push(21);  //配列に新しく足すことは可能
+// console.log(book[3]) これはエラーが起きる
+
 
