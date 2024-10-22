@@ -220,3 +220,11 @@ function add(num1: number, num2: number): number{
 function sayHello(): void{
     console.log("Hello");
 }
+
+
+
+/**
+ * undefind型とnull型
+ */
+let tmpUndefind: undefined = undefined
+let tmpNull: null = null
