@@ -228,3 +228,30 @@ function sayHello(): void{
  */
 let tmpUndefind: undefined = undefined
 let tmpNull: null = null
+
+
+
+/**
+ * 関数型を使って、特定の関数のみを代入できる変数の作り方
+ */
+const anotherAdd: (n1: number, n2: number) => number = add;
+
+const anotherAdd2: (n1: number, n2: number) => number = function (num1: number, num2: number): number{  //無名関数にすることも可能
+    return num1 + num2
+}
+
+const anotherAdd3 = function (num1: number, num2: number): number{
+    return num1 + num2
+}
+
+const anotherAdd4: (n1: number, n2: number) => number = function (num1, num2){  //どちらかに型の情報があれば型推論が可能
+    return num1 + num2
+}
+
+//アロー関数とは
+const doubleNumber = number => number * 2;  //関数を綺麗に書けるようになる(returnや{}を省略できる)
+
+//型をつける場合
+const doubleNumber2 = (number: number): number => number * 2;   //引数が一つだとしてもカッコをつけないといけない
+
+const doubleNumber3: (num: number) => number = num => num * 2; //左側にまとめて書くことも可能
