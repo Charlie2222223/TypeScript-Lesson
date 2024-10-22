@@ -197,3 +197,15 @@ const cloth3: {
 }
 
 
+
+/**
+ * 関数に型をつける方法
+ * 戻り値には型推論は適応されるが引数には型推論が適応されない
+ * 引数に型を宣言しなかった場合すべてany型に変換される
+ * @param num1 number型
+ * @param num2 number型
+ * @returns number型
+ */
+function add(num1: number, num2: number): number{
+    return num1 + num2
+}
