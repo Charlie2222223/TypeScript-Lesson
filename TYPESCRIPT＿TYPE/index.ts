@@ -65,4 +65,40 @@ const book: [string, number, boolean] = ['bussiness', 500, false];
 book.push(21);  //配列に新しく足すことは可能
 // console.log(book[3]) これはエラーが起きる
 
+/**
+ * Enum(列挙型)
+ * 特定のまとまったグループのみ受け入れる型
+ * Enumの中身は大文字で書いて変数名はパスカルケースでかく
+ * 
+ */
+// const CoffeeSize = {
+//     SHORT: 'SHORT',
+//     TALL: 'TALL',
+//     GRANDE: 'GRANDE',
+//     VENTI: 'VENTI'
+// }
+
+// coffee.size = "hello" これはしてほしくない！！
+
+enum CoffeeSize {
+    SHORT = 'SHORT',
+    TALL = 'TALL',
+    GRANDE = 'GRANDE',
+    VENTI = 'VENTI'
+}
+
+const coffee = {
+    hot: true,
+    size: CoffeeSize.TALL,  //CoffeeSizeがちゃんとObjectに変わっている！！
+}
+
+coffee.size = CoffeeSize.SHORT //これだとお受けつける
+
+enum CoffeeSize2 {      //この場合だとSHORT=0 TALL="Tall" GRANDE=1 VENTI=2 が入るようになっている
+    SHORT,
+    TALL = 'TALL',
+    GRANDE = 1,
+    VENTI
+}
+
 
