@@ -27,3 +27,25 @@ let hello;
 hello = 2;
 hello = "";
 hello = true;
+
+/**
+ * オブジェクトに対して型をつける方法
+ */
+const person: {
+    name: string;
+    age: number;
+} = {
+    name: 'jack',
+    age: 21
+}
+
+/**
+ * オブジェクトがネスとしていた場合(型推論)
+ */
+const person2 = {
+    name: {
+        first: 'jack',
+        last: "smith"
+    },
+    age: 21
+}
