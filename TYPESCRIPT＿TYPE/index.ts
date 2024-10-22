@@ -177,3 +177,23 @@ const cloth2: {                 //このように定義する
     color: 'white',
     size: clothSize
 }
+
+
+
+/**
+ * tyoeエイリアス
+ * 型を変数で扱えるようにする(別名で表す)
+ * jsに変換したら全て消える
+ */
+type ClothSize = 'small' | 'medium' | 'large'
+let clothSize2 : ClothSize = 'large';
+
+const cloth3: {                 
+    color: string;
+    size: ClothSize         //このように型を設定できる
+} = {
+    color: 'white',
+    size: clothSize
+}
+
+
