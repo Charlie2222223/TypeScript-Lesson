@@ -271,3 +271,25 @@ function doubleAndHandle(num: number, cb: (num: number) => number): void{   　/
 doubleAndHandle(21, doubleNum => {
     return doubleNum
 });
+
+
+
+/**
+ * unknow型
+ * anyと一緒でなんでも入れられる
+ */
+let unknowInput: unknown
+let anyInput: any
+let text: string
+
+unknowInput = 'hello'
+unknowInput = 21
+unknowInput = true
+
+// text = unknowInput これはエラーになるのがanyとの違い
+text = anyInput;
+
+//if文でtypeを変更したらいける！！
+if(typeof unknowInput === 'string'){
+    text = unknowInput
+}
