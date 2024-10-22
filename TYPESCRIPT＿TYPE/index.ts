@@ -209,3 +209,14 @@ const cloth3: {
 function add(num1: number, num2: number): number{
     return num1 + num2
 }
+
+
+
+/**
+ * 関数の戻り値にvoidを使う方法
+ * void = 何も返さない型
+ * 何も返さない時は必ずvoidかanyを明示する
+ */
+function sayHello(): void{
+    console.log("Hello");
+}
