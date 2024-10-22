@@ -49,3 +49,11 @@ const person2 = {
     },
     age: 21
 }
+
+/**
+ * 配列に型をつける方法
+ */
+const fruits: string[] = ['Apple', 'Banana', 'Grape']
+// fruits.push(21); これはエラーが出るようになる
+
+
