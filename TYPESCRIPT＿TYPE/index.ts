@@ -1,3 +1,5 @@
+import { DiGitPullRequest } from "react-icons/di";
+
 let hasValue: boolean = true;
 
 /**
@@ -255,3 +257,17 @@ const doubleNumber = number => number * 2;  //関数を綺麗に書けるよう�
 const doubleNumber2 = (number: number): number => number * 2;   //引数が一つだとしてもカッコをつけないといけない
 
 const doubleNumber3: (num: number) => number = num => num * 2; //左側にまとめて書くことも可能
+
+
+
+/**
+ * callbac関数の型
+ */
+function doubleAndHandle(num: number, cb: (num: number) => number): void{   　//引数に関数を与える
+    const doubleNum = cb(num * 2);
+    console.log(doubleNum);
+}
+
+doubleAndHandle(21, doubleNum => {
+    return doubleNum
+});
