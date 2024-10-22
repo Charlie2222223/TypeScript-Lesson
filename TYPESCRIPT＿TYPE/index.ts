@@ -145,3 +145,35 @@ let unionType: number | string = 10;
 unionType = 'hello';
 
 let unionTypes: (string | number)[] = [10, 'hello'];    //配列でUnion型を使う場合 
+
+
+
+/**
+ * Literal型
+ * 特定の決まった値のみを扱う
+ * Enumと比べたときにLiteralの方がいい
+ */
+const apple: 'apple' = 'apple'  //appleしか入れられなくなる
+const num: 0 = 0                //numberやbooleanも同じ
+
+const hi = 'hi';                //これだとhiしか入れられなくなる
+let his = 'his';                //letだとstring方になる
+
+let clothSize: 'small' | 'medium' | 'large' = 'large' //こうすることでこの変数は small medium large しか入れられなくなる
+
+//Enumとの違い
+const cloth = {
+    color: 'white',
+    size: clothSize
+}
+
+// cloth.size = 'small'         型がlargeになっているからsmallを入れようとしてエラーが出る
+//じゃあどうする？？？
+
+const cloth2: {                 //このように定義する
+    color: string;
+    size: 'small' | 'medium' | 'large'
+} = {
+    color: 'white',
+    size: clothSize
+}
