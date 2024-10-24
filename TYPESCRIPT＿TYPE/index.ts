@@ -183,7 +183,7 @@ const cloth2: {                 //このように定義する
 
 
 /**
- * tyoeエイリアス
+ * typeエイリアス
  * 型を変数で扱えるようにする(別名で表す)
  * jsに変換したら全て消える
  */
@@ -261,7 +261,7 @@ const doubleNumber3: (num: number) => number = num => num * 2; //左側にまと
 
 
 /**
- * callbac関数の型
+ * callback関数の型
  */
 function doubleAndHandle(num: number, cb: (num: number) => number): void{   　//引数に関数を与える
     const doubleNum = cb(num * 2);
@@ -292,4 +292,16 @@ text = anyInput;
 //if文でtypeを変更したらいける！！
 if(typeof unknowInput === 'string'){
     text = unknowInput
+}
+
+
+
+/**
+ * never型
+ * 決して何も返さない
+ * whileでずっとtureみたいなものはnevreになる
+ * 関数で宣言すると型推論はvoidになる
+ */
+function error(message: string): never{
+    throw new Error(message);
 }
