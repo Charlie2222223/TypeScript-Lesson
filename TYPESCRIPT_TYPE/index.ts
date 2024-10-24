@@ -1,11 +1,10 @@
-import { DiGitPullRequest } from "react-icons/di";
 
 let hasValue: boolean = true;
 
 /**
  * number型は小数点でもマイナスでも入れることができる
  */
-let count: number = 10;
+let count: number = 20;
 let float: number = 3.14;
 let negative: number = -0.12;
 
@@ -251,7 +250,7 @@ const anotherAdd4: (n1: number, n2: number) => number = function (num1, num2){  
 }
 
 //アロー関数とは
-const doubleNumber = number => number * 2;  //関数を綺麗に書けるようになる(returnや{}を省略できる)
+const doubleNumber = (number: number) => number * 2;  //関数を綺麗に書けるようになる(returnや{}を省略できる)
 
 //型をつける場合
 const doubleNumber2 = (number: number): number => number * 2;   //引数が一つだとしてもカッコをつけないといけない
