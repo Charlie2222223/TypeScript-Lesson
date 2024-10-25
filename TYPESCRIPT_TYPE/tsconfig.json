@@ -11,9 +11,14 @@
     // "disableReferencedProjectLoad": true,             /* Reduce the number of projects loaded automatically by TypeScript. */
 
     /* Language and Environment */
-    "target": "es2016",                                  /* Set the JavaScript language version for emitted JavaScript and include compatible library declarations. */
-    // "lib": [],                                        /* Specify a set of bundled library declaration files that describe the target runtime environment. */
-    // "jsx": "preserve",                                /* Specify what JSX code is generated. */
+    "target": "es2016",                                  //デフォルトではes3になる
+    // "lib": [                                            ここにはいろいろなライブラリを書いておりデフォルトではこの四つが書いている
+    //   "ES6",
+    //   "dom",
+    //   "DOM.Iterable",
+    //   "ScriptHost"
+    // ],                                                /* Specify a set of bundled library declaration files that describe the target runtime environment. */
+    // "jsx": "preserve",                                /*Reactを使用する際に使用する */
     // "experimentalDecorators": true,                   /* Enable experimental support for legacy experimental decorators. */
     // "emitDecoratorMetadata": true,                    /* Emit design-type metadata for decorated declarations in source files. */
     // "jsxFactory": "",                                 /* Specify the JSX factory function used when targeting React JSX emit, e.g. 'React.createElement' or 'h'. */
@@ -45,19 +50,19 @@
     // "noResolve": true,                                /* Disallow 'import's, 'require's or '<reference>'s from expanding the number of files TypeScript should add to a project. */
 
     /* JavaScript Support */
-    // "allowJs": true,                                  /* Allow JavaScript files to be a part of your program. Use the 'checkJS' option to get errors from these files. */
-    // "checkJs": true,                                  /* Enable error reporting in type-checked JavaScript files. */
+    // "allowJs": true,                                  /* jsファイルも一緒にコンパイルできる機能 */
+    // "checkJs": true,                                  /* allowjsと一緒に使わないといけなくてjsファイルもエラーを検出すようにする */
     // "maxNodeModuleJsDepth": 1,                        /* Specify the maximum folder depth used for checking JavaScript files from 'node_modules'. Only applicable with 'allowJs'. */
 
     /* Emit */
-    // "declaration": true,                              /* Generate .d.ts files from TypeScript and JavaScript files in your project. */
+    // "declaration": true,                              /* 型の情報が全部載っているファイルを作成する ドキュメントを作っている*/
     // "declarationMap": true,                           /* Create sourcemaps for d.ts files. */
     // "emitDeclarationOnly": true,                      /* Only output d.ts files and not JavaScript files. */
-    // "sourceMap": true,                                /* Create source map files for emitted JavaScript files. */
+    "sourceMap": true,                                /* ブラウザでTypeScriptのファイルを見たい時に使う */
     // "inlineSourceMap": true,                          /* Include sourcemap files inside the emitted JavaScript. */
     // "noEmit": true,                                   /* Disable emitting files from a compilation. */
     // "outFile": "./",                                  /* Specify a file that bundles all outputs into one JavaScript file. If 'declaration' is true, also designates a file that bundles all .d.ts output. */
-    // "outDir": "./",                                   /* Specify an output folder for all emitted files. */
+    // "outDir": "./",                                   /* TypeScriptをコンパイルして出力されるjsファイルの行き先を決めれる */
     // "removeComments": true,                           /* Disable emitting comments. */
     // "importHelpers": true,                            /* Allow importing helper functions from tslib once per project, instead of including them per-file. */
     // "downlevelIteration": true,                       /* Emit more compliant, but verbose and less performant JavaScript for iteration. */
@@ -106,5 +111,18 @@
     /* Completeness */
     // "skipDefaultLibCheck": true,                      /* Skip type checking .d.ts files that are included with TypeScript. */
     "skipLibCheck": true                                 /* Skip type checking all .d.ts files. */
-  }
+  },
+  // "include": [        //コンパイルしたいものを選択
+  //   "*/index.ts"
+
+  // ],
+  "exclude": [        //jsに変換したくないものものを選択　rootディレクトリのもののみ
+    "compiler.ts",
+    "*.spec.ts",      //ワイルドカード(*)を制定してあげることもできる
+    "**/compiler.ts", //こうすることでどのフォルダにいても変換されなくすることができる
+    "node_module"     //デフォルトで書かれているけど一度明記したらこれも一緒に書かないといけない
+  ],
+  "files": [          //ワイルドカードは使えない　excludeに指定されているものでもコンパイルできる
+    "tmp/compiler.ts"
+  ] 
 }
