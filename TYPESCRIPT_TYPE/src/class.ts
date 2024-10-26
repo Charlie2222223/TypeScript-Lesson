@@ -6,7 +6,11 @@ class Person{
         this.name = initName
     }
 
-    greetiong() {                       //メソッドの作成
+    /**
+     * メソッドの作成
+     * @param this thisを宣言することによりこのthisはどういうものなのかを示す　そうすることによりエラーを事前に防ぐことができる
+     */
+    greetiong(this: {name: string}) {                  
         console.log(`Hello!! My name is ${this.name}`);
     }
 }
