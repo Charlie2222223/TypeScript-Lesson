@@ -1,9 +1,11 @@
 class Person{
 
-    name: string;                       //この場合nameフィールドという
+    public　name: string;                                 //この場合nameフィールドという
+    private age: number;                                  //privateをつけることができる
 
-    constructor(initName: string) {     //初期化の関数
-        this.name = initName
+    constructor(initName: string, initAge: number) {      //初期化の関数
+        this.name = initName;
+        this.age = initAge;
     }
 
     /**
@@ -19,13 +21,17 @@ class Person{
      * @param this 
      */
     greeting(this: Person) {                  
-        console.log(`Hello!! My name is ${this.name}`);
+        console.log(`Hello!! My name is ${this.name}. I am ${this.age} years old.`);
+    }
+
+    inrementAge(){
+        this.age += 1;
     }
 }
 
 let person3: Person;
 
-const quill = new Person('Quill');
+const quill = new Person('Quill', 38);
 quill.greeting();
 
 // const anotherQuill = {
@@ -33,9 +39,9 @@ quill.greeting();
 //     anotherGreeting: quill.greetiong
 // }
 
-const anotherQuill = {
-    name: 'anotherQuill',
-    greeting: quill.greeting
-}
+// const anotherQuill = {
+//     name: 'anotherQuill',
+//     greeting: quill.greeting
+// }
 
-anotherQuill.greeting();
+// anotherQuill.greeting();
