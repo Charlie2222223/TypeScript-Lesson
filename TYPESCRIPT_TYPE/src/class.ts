@@ -33,10 +33,27 @@ class Person{
     }
 }
 
-let person3: Person;
+/**
+ * 継承の書き方
+ */
+class Teacher extends Person{
+    constructor(name: string, age: number, public subject: string){
+        super(name, age);                                                //super = 親クラスのコンストラクタ
+    }
 
-const quill = new Person('Quill', 38);
-quill.greeting();
+    greeting() {                  
+        console.log(`Hello!! My name is ${this.name}. I am ${this.age} years old. I teach ${this.subject}. `);
+    }
+
+}
+
+const teacher = new Teacher('Quill', 38, 'Math');
+teacher.greeting();
+
+// let person3: Person;
+
+// const quill = new Person('Quill', 38);
+// quill.greeting();
 
 // const anotherQuill = {
 //     name: 'anotherQuill',

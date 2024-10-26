@@ -1,8 +1,16 @@
 "use strict";
 class Person {
-    constructor(initName, initAge) {
-        this.name = initName;
-        this.age = initAge;
+    // public　name: string;                                 //この場合nameフィールドという
+    // private age: number;                                  //privateをつけることができる
+    /**
+     * 初期化する関数
+     * @param name このようにpublic name: stringと名義することによって初期化できる
+     * @param initAge privateにしておくことによってclass外からの変更を防ぐ
+     * readonlyをつけることで読み込みしかできなくなる　しかしコンストラクタ内なら書き換え可能
+     */
+    constructor(name, age) {
+        this.name = name;
+        this.age = age;
     }
     /**
      * メソッドの作成
@@ -22,9 +30,16 @@ class Person {
         this.age += 1;
     }
 }
-let person3;
-const quill = new Person('Quill', 38);
-quill.greeting();
+/**
+ * 継承の書き方
+ */
+class Teacher extends Person {
+}
+const teacher = new Teacher('Quill', 38);
+teacher.greeting();
+// let person3: Person;
+// const quill = new Person('Quill', 38);
+// quill.greeting();
 // const anotherQuill = {
 //     name: 'anotherQuill',
 //     anotherGreeting: quill.greetiong
