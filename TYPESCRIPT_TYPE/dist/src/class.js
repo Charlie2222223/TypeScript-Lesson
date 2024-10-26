@@ -34,8 +34,31 @@ class Person {
  * 継承の書き方
  */
 class Teacher extends Person {
+    /**
+     * getterの書き方
+     */
+    get subject() {
+        if (!this._subject) {
+            throw new Error('There is no subject');
+        }
+        return this._subject;
+    }
+    /**
+     * setterの書き方
+     * getの型を推測してvalueもstringになっている
+     */
+    set subject(value) {
+        this._subject = value;
+    }
+    constructor(name, age, _subject) {
+        super(name, age); //super = 親クラスのコンストラクタ
+        this._subject = _subject;
+    }
+    greeting() {
+        console.log(`Hello!! My name is ${this.name}. I am ${this.age} years old. I teach ${this.subject}. `);
+    }
 }
-const teacher = new Teacher('Quill', 38);
+const teacher = new Teacher('Quill', 38, 'Math');
 teacher.greeting();
 // let person3: Person;
 // const quill = new Person('Quill', 38);
