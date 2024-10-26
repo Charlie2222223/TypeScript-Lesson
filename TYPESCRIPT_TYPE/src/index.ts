@@ -30,10 +30,10 @@ let hasvalue = true;
 /**
  * 型推論ができない場合の例
  */
-let hello;
-hello = 2;
-hello = "";
-hello = true;
+let hello2;
+hello2 = 2;
+hello2 = "";
+hello2 = true;
 
 
 
@@ -58,6 +58,7 @@ const person2 = {
         first: 'jack',
         last: "smith"
     },
+     
     age: 21
 }
 
