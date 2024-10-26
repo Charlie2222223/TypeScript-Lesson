@@ -1,4 +1,4 @@
-class Person{
+abstract class Person{                                       //abstractクラスは生成できない
 
     // public　name: string;                                 //この場合nameフィールドという
     // private age: number;                                  //privateをつけることができる
@@ -33,7 +33,10 @@ class Person{
      */
     greeting(this: Person) {                  
         console.log(`Hello!! My name is ${this.name}. I am ${this.age} years old.`);
+        this.explainJob();
     }
+
+    abstract explainJob(): void;                                          //継承用のメソッドを作成
 
     inrementAge(){
         this.age += 1;
@@ -44,6 +47,10 @@ class Person{
  * 継承の書き方
  */
 class Teacher extends Person{
+
+    explainJob(){
+        console.log(`I am a teacher and I teach ${this.subject}`)
+    }
 
     /**
      * getterの書き方
@@ -63,20 +70,18 @@ class Teacher extends Person{
         this._subject = value;
     }
 
-    constructor(name: string, age: number, private _subject: string){
-        super(name, age);                                                //super = 親クラスのコンストラクタ
+    private　constructor(name: string, age: number, private _subject: string){          //コンストラクタにprivateをつけるとnewでインスタンスを生成できなくする
+        super(name, age);                                                               //super = 親クラスのコンストラクタ
     }
 
-    greeting() {                  
-        console.log(`Hello!! My name is ${this.name}. I am ${this.age} years old. I teach ${this.subject}. `);
-    }
+    // greeting() {                  
+    //     console.log(`Hello!! My name is ${this.name}. I am ${this.age} years old. I teach ${this.subject}. `);
+    // }
 
 }
 
-
-
-// const teacher = new Teacher('Quill', 38, 'Math');
-// teacher.greeting();
+const teacher = new Teacher('Quill', 38, 'Math');
+teacher.greeting();
 
 // let person3: Person;
 

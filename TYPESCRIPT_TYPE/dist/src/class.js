@@ -1,7 +1,10 @@
 "use strict";
 class Person {
-    // public　name: string;                                 //この場合nameフィールドという
-    // private age: number;                                  //privateをつけることができる
+    static isAdult(age) {
+        if (age < 17)
+            return true;
+        return false;
+    }
     /**
      * 初期化する関数
      * @param name このようにpublic name: stringと名義することによって初期化できる
@@ -25,15 +28,22 @@ class Person {
      */
     greeting() {
         console.log(`Hello!! My name is ${this.name}. I am ${this.age} years old.`);
+        this.explainJob();
     }
     inrementAge() {
         this.age += 1;
     }
 }
+// public　name: string;                                 //この場合nameフィールドという
+// private age: number;                                  //privateをつけることができる
+Person.species = 'Homo apiens'; //staticをつけることによってどこでもそのフィールドやメソッドを使うことができる
 /**
  * 継承の書き方
  */
 class Teacher extends Person {
+    explainJob() {
+        console.log(`I am a teacher and I teach ${this.subject}`);
+    }
     /**
      * getterの書き方
      */
@@ -53,9 +63,6 @@ class Teacher extends Person {
     constructor(name, age, _subject) {
         super(name, age); //super = 親クラスのコンストラクタ
         this._subject = _subject;
-    }
-    greeting() {
-        console.log(`Hello!! My name is ${this.name}. I am ${this.age} years old. I teach ${this.subject}. `);
     }
 }
 const teacher = new Teacher('Quill', 38, 'Math');
