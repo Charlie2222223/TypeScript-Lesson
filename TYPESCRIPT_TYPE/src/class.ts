@@ -1,11 +1,15 @@
 class Person{
 
-    public　name: string;                                 //この場合nameフィールドという
-    private age: number;                                  //privateをつけることができる
+    // public　name: string;                                 //この場合nameフィールドという
+    // private age: number;                                  //privateをつけることができる
 
-    constructor(initName: string, initAge: number) {      //初期化の関数
-        this.name = initName;
-        this.age = initAge;
+    /**
+     * 初期化する関数
+     * @param name このようにpublic name: stringと名義することによって初期化できる
+     * @param initAge privateにしておくことによってclass外からの変更を防ぐ
+     * readonlyをつけることで読み込みしかできなくなる　しかしコンストラクタ内なら書き換え可能
+     */
+    constructor(public readonly name: string, private age: number) { 
     }
 
     /**
