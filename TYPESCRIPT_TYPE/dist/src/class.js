@@ -60,13 +60,34 @@ class Teacher extends Person {
     set subject(value) {
         this._subject = value;
     }
+    /**
+     * コンストラクタにprivateをつけるとnewでインスタンスを生成できなくする
+     * シングルトーンパターンをするため・・・クラスからインスタンスを一つしか作らないようにする方法
+     * @param name
+     * @param age
+     * @param _subject
+     */
     constructor(name, age, _subject) {
         super(name, age); //super = 親クラスのコンストラクタ
         this._subject = _subject;
     }
+    // greeting() {                  
+    //     console.log(`Hello!! My name is ${this.name}. I am ${this.age} years old. I teach ${this.subject}. `);
+    // }
+    /**
+     * こうすることでインスタンスを生成できる
+     * @returns
+     */
+    static getInstance() {
+        if (Teacher.instance)
+            return Teacher.instance;
+        Teacher.instance = new Teacher('Quill', 38, 'Math');
+        return Teacher.instance;
+    }
 }
-const teacher = new Teacher('Quill', 38, 'Math');
+const teacher = Teacher.getInstance();
 teacher.greeting();
+;
 // let person3: Person;
 // const quill = new Person('Quill', 38);
 // quill.greeting();
