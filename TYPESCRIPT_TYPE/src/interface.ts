@@ -11,7 +11,7 @@
  * abstractとの違いは中身が記載されているかどうか
  */
 interface Human{
-    name: string;
+    readonly name: string;                                  //interfaceにもreadonlyをつけることができる(type型にもつけれる) 代入するときはエラーが出ない
     age: number;
     greeting(message:string): void;                         //メソッドの宣言方法
 }
@@ -29,6 +29,7 @@ const human: Human = {
 /**
  * implementsを使用することによりclassにinterfaceを継承させることができる
  * implementsは複数のインターフェイスを継承することができる
+ * readonlyの影響を受けない
  */
 class Developer implements Human{
     constructor(public name: string, public age: number, public experience: number){}
@@ -40,5 +41,7 @@ class Developer implements Human{
 /**
  * 構造的部分型
  * Human型なのにDeveloperを継承できるのは少なくともname,age,greetingさえ継承していればokだから
+ * 制限が緩い型に対して制限が厳しい型をいれることができると言うこと
  */
 const user:Human = new Developer("Quill", 38, 3);       //型をimplements先のクラスにできる
+
